@@ -5,78 +5,71 @@ import axios from 'axios';
 
 function Rover() {
 
-    const [Xpos, setXpos] = React.useState(null);
-    const [Ypos, setYpos] = React.useState(null);
-    const [Angle, setAngle] = React.useState(null);
-    const [Battery, setBattery] = React.useState(null);
-    const [Latest, setLatest] = React.useState(null);
+    const [RoverData, setRoverData] = React.useState(null);
+    var xcoord;
+    var ycoord;
+    var battery;
+    var lastUpdate;
+    var angle;
 
-  
+    /*const coords = {
+      x: 5,
+      y: 9
+    }
+
+    axios.post("/coords", coords)
+    .then((response) => {
+      console.log(response);
+      console.log("test");
+    });*/
+
+    /*function postCoords(x, y){
+      const coords = {
+          x: x,
+          y: y
+      }
+
+      axios.post("/coords", coords)
+      .then((response) => {
+          console.log(response);
+          console.log("test");
+      });
+    }
+
+    postCoords(5, 3);*/
+
+    //async function to get rover data
+    const getRoverData = async () => {
+      const response = await axios("/rover");
+      setRoverData(response.data);
+    };
+
+    //useEffect hook to get rover data
+    //the way its set up now, getRoverData gets executed by the hook each time the page is re-rendered,
+    //but for example you could also use getObstacleData as an event that gets executed whenever a button is clicked,
+    //shouldn't be necesary
     React.useEffect(() => {
-      fetch("/coords")
-        .then((res) => res.json())
-        .then((Ypos) => setYpos(Ypos.ycoord));
-    }, []);
-  
-    React.useEffect(() => {
-      fetch("/coords")
-        .then((res) => res.json())
-        .then((Xpos) => setXpos(Xpos.xcoord));
-    }, []);
+      getRoverData();
+    }, [])
 
-    React.useEffect(() => {
-        fetch("/coords")
-          .then((res) => res.json())
-          .then((Angle) => setAngle(Angle.angle));
-      }, []);
 
-      React.useEffect(() => {
-        fetch("/coords")
-          .then((res) => res.json())
-          .then((Battery) => setBattery(Battery.battery));
-      }, []);
-
-      React.useEffect(() => {
-        fetch("/coords")
-          .then((res) => res.json())
-          .then((Latest) => setLatest(Latest.latest));
-      }, []);
-
-    
-      /*function getBattery(){
-        //var battery;
-        console.log("test");
-        axios.get("/coords")
-        .then(response=>{
-          battery=response.data.battery;
-          console.log("battery 1:",battery);
-        })
-        .catch(err => {
-          console.log(err);
-        })
-        return battery;
-      }*/
-
-      /*React.useEffect(() => {
-        axios.get("/coords")
-        .then(response=>{
-          battery=response.data.battery;
-          console.log("battery 1:",battery);
-        })
-        .catch(err => {
-          console.log(err);
-        })
-      }, []) 
-      console.log("battery 2", battery);*/
-
+    //this is necessary because RoverData is null for some reason during the first two requests,
+    //and the code breaks if I try to get attributes of a null object
+    if(RoverData != null){
+      battery = (RoverData.battery);
+      xcoord = (RoverData.xcoord);
+      ycoord = (RoverData.ycoord);
+      angle = (RoverData.angle);
+      lastUpdate = (RoverData.latest);
+    }
   
     return (
         <div>
-          <p>y coordinate: {!Ypos ? "Loading..." : Ypos}</p>
-          <p>x coordinate: {!Xpos ? "Loading..." : Xpos}</p>
-          <p>angle: {!Angle ? "Loading..." : Angle}</p>
-          <p>last update: {!Latest ? "Loading..." : Latest}</p>
-          <p>battery: {!Battery ? "Loading..." : Battery}</p>
+          <p>x coordinate: {!xcoord ? "Loading..." : xcoord}</p>
+          <p>y coordinate: {!ycoord ? "Loading..." : ycoord}</p>
+          <p>angle: {!angle ? "Loading..." : angle}</p>
+          <p>lastUpdate: {!lastUpdate ? "Loading..." : lastUpdate}</p>
+          <p>battery: {!battery ? "Loading..." : battery}</p>
         </div>
     );
   }
