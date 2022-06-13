@@ -6,17 +6,16 @@ import axios from 'axios';
 function Obstacles() {
 
     const [ObstacleData, setObstacleData] = React.useState(null);
-    var pink;
-    var blue;
-    var green;
-    var black;
-    var orange;
+    var col;
 
     //async function to get obstacle data
     const getObstacleData = async () => {
       const response = await axios("/obstacles");
       setObstacleData(response.data);
+      //console.log(response.data);
     };
+
+    //console.log(ObstacleData);
 
     //useEffect hook to get obstacle data
     //the way its set up now, getObstacleData gets executed by the hook each time the page is re-rendered,
@@ -26,28 +25,27 @@ function Obstacles() {
       getObstacleData();
     }, [])
 
+    console.log(ObstacleData);
  
     //this is necessary because ObstacleData is null for some reason during the first two requests,
     //and the code breaks if I try to get attributes of a null object
     //note that the elements pink, black etc. are arrays with two values, namely the x and y coordinate values of the obstacle
     if(ObstacleData != null){
-      pink = (ObstacleData.pink);
-      black = (ObstacleData.black);
-      blue = (ObstacleData.blue);
-      orange = (ObstacleData.orange);
-      green = (ObstacleData.green);
+      col = (ObstacleData[1].colour);
     }
   
     return (
         <div>
-          <p>pink: {!pink ? "Loading..." : pink}</p>
-          <p>green: {!green ? "Loading..." : green}</p>
-          <p>black: {!black ? "Loading..." : black}</p>
-          <p>orange: {!orange ? "Loading..." : orange}</p>
-          <p>blue: {!blue ? "Loading..." : blue}</p>
-
+          <p>colour = {col}</p>
         </div>
     );
   }
   
   export default Obstacles;
+/*
+  <p>pink: {!pink ? "Loading..." : pink}</p>
+          <p>green: {!green ? "Loading..." : green}</p>
+          <p>black: {!black ? "Loading..." : black}</p>
+          <p>orange: {!orange ? "Loading..." : orange}</p>
+          <p>blue: {!blue ? "Loading..." : blue}</p>
+*/
