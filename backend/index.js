@@ -73,7 +73,7 @@ app.get("/rover", (req,res) => {
 //handles post request for input coordinates
 app.post("/coords", (req,res) => {
 	console.log("x input:", req.body.x, " y input:", req.body.y);	
-	//send to ESP32
+	//send to pathfinding algorithm
 });
 
 app.post("/move", (req,res) => {
