@@ -69,7 +69,7 @@ function Rover() {
           <p>y coordinate: {!ycoord ? "Loading..." : ycoord}</p>
           <p>angle: {!angle ? "Loading..." : angle}</p>
           <p>lastUpdate: {!lastUpdate ? "Loading..." : lastUpdate}</p>
-          <p>battery: {!battery ? "Loading..." : battery}</p>
+          <p>The battery of the rover is: {!battery ? "Loading..." : battery}</p>
         </div>
     );
   }

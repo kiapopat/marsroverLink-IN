@@ -1,0 +1,40 @@
+.header1 {
+    position: top;
+    color: #481f00;
+/*     -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: white;
+    font-size: 60px;
+    margin-left: 30px;
+    margin-top: 1px;
+    margin-bottom: 10px; */
+    font-family: "Courier", sans-serif;
+    text-align: top;
+  }
+  
+  .button {
+    position: bottom;
+    height:100px;
+   width: 100px;
+   border: 0;
+}
+#left{
+     background-color: 03fcc2;
+     color: #6aff00;
+}
+
+#right{
+   background-color: 03fcc2;
+   color: #6aff00;
+}
+#forward{
+   background-color: 03fcc2;
+   color: #6aff00;
+}
+#backward{
+   background-color: 03fcc2;
+   color: #6aff00;
+}
+#stop{
+   background-color: fc0303;
+   color: #ff0000;
+}

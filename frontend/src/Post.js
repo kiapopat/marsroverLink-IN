@@ -5,19 +5,6 @@ import axios from 'axios';
 
 function Post() {
 
-
-    
-    function postDirection(dir){
-        const packet = {
-            direction: dir,
-        }
-        axios.post("/move", packet)
-        .then((response) => {
-        console.log("posted move", packet, response.status); //should return 200 ok
-        });
-    }
-
-
     //sample function to post input coordinates to backend
     function postCoords(x, y){
         const coords = {
@@ -30,12 +17,10 @@ function Post() {
         });
     }
 
-    //postDirection("r");
-
     //right now postCoords just gets called an arbitrary number of times instead of when the button is actually clicked. No idea why
     return (
         <div>
-          <button>
+          <button onClick={postCoords(5,3)}>
               Post coordinates
           </button>
         </div>
