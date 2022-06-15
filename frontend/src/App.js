@@ -6,12 +6,16 @@ import Battery from './pages/battery';
 import About from './pages/about';
 import Map from './pages/map';
 import Control from './pages/control';
+import Navbar from './components/navbar'
 import React from 'react';
+import { Nav } from './components/navbar/NavbarElements';
 
 
 function App(){
   return ( 
     <div className="App">
+        <Navbar/>
+
       <Routes>
         <Route path="/" element={ <Index/> } />
         <Route path="about" element={ <About/> } />
