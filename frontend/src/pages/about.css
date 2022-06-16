@@ -11,30 +11,6 @@
   text-align: center;
 }
 
-.content {
-  background: white;
-  margin-top: 1px;
-  position: absolute;
-
-}
-
-.content2 {
-
-  background-size: 100% 1000px;
-  position: absolute;
-  margin-top: 210px;
-
-  padding: 30px;
-}
-
-
-
-.content3 {
-  background: white;
-  position: absolute;
-  margin-top: 750px;
-  padding: 30px;
-}
 
 .title {
   font-family: "Courier", sans-serif;
@@ -42,18 +18,30 @@
 }
 
 .title2 {
-  font-family: "Courier", sans-serif;
-  text-align: center;
+  position: center;
   color: #481f00;
   -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: black;
+  -webkit-text-stroke-color: white;
+  font-size: 60px;
+  margin-left: 30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-family: "Courier", sans-serif;
+  text-align: center;
 
 }
 
 .title3 {
+  position: center;
+  color: #481f00;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: white;
+  font-size: 60px;
+  margin-left: 30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   font-family: "Courier", sans-serif;
   text-align: center;
-  color: #481f00;;
 }
 
 .text {

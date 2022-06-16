@@ -1,40 +1,43 @@
 .header1 {
-    position: top;
-    color: #481f00;
-/*     -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: white;
-    font-size: 60px;
-    margin-left: 30px;
-    margin-top: 1px;
-    margin-bottom: 10px; */
-    font-family: "Courier", sans-serif;
-    text-align: top;
-  }
+   position: center;
+   color: #481f00;
+   -webkit-text-stroke-width: 1px;
+   -webkit-text-stroke-color: white;
+   font-size: 60px;
+   margin-left: 30px;
+   margin-top: 10px;
+   margin-bottom: 10px;
+   font-family: "Courier", sans-serif;
+   text-align: center;
+ }
+ 
   
   .button {
-    position: bottom;
-    height:100px;
-   width: 100px;
-   border: 0;
+      padding: 10px 20px;
+      border-radius: 2px;
+      outline: none;
+      border: none;
+      cursor: pointer;
+  
 }
 #left{
-     background-color: 03fcc2;
-     color: #6aff00;
+     background-color: #6aff00;
+     color: white;
 }
 
 #right{
-   background-color: 03fcc2;
-   color: #6aff00;
+   background-color: #6aff00;
+     color: white;
 }
 #forward{
-   background-color: 03fcc2;
-   color: #6aff00;
+   background-color: #6aff00;
+     color: white;
 }
 #backward{
-   background-color: 03fcc2;
-   color: #6aff00;
+   background-color: #6aff00;
+     color: white;
 }
 #stop{
-   background-color: fc0303;
-   color: #ff0000;
+   background-color: red;
+     color: white;
 }

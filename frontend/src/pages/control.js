@@ -44,7 +44,8 @@ function Control() {
                 alignItems: 'center',
                 height: '100'
             }}
-        >
+        > 
+
            <h1 className="header1">Control</h1>
           
            

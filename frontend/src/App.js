@@ -16,13 +16,13 @@ function App(){
     <div className="App">
         <Navbar/>
 
-      <Routes>
+      { <Routes>
         <Route path="/" element={ <Index/> } />
         <Route path="about" element={ <About/> } />
         <Route path="battery" element={ <Battery/> } />
         <Route path="control" element={ <Control/> } />
         <Route path="map" element={ <Map/> } />
-      </Routes>
+      </Routes> }
 
 
   </div>
