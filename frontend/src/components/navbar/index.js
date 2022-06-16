@@ -16,7 +16,7 @@ const Navbar = () => {
            <Nav class="navbar navbar-expand-lg bg-black">
            <div class="container-fluid">
             <NavLogo to="/" class="navbar-brand">
-                Logo
+                Link-IN
             </NavLogo>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <FaBars/>
