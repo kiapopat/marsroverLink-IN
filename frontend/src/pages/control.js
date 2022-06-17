@@ -37,7 +37,10 @@ function button(value) {
 
 function Control() {
     return (
+        <div className="div1">
+            <h1 className="header1">Control</h1>
         <div
+        
             style={{
                 display: 'flex',
                 justifyContent: 'center',
@@ -45,18 +48,20 @@ function Control() {
                 height: '100'
             }}
         > 
-
-           <h1 className="header1">Control</h1>
+            <input id="Manual" class="button" type="button" value="MANUAL" onClick={() => button('manual')}/>
+            <input id="Auto" class="button" type="button" value="AUTOMATIC" onClick={() => button('automatic')}/>
+            <br/> 
+            <br/> 
+           
           
            
-            <input id="right" class="button" type="button" value="right" onClick={() => button('right')}/>
-            <input id="forward" class="button"  type="button" value="forward" onClick={() => button('forward')}/>
-            <input id="backward" class="button"  type="button" value="back" onClick={() => button('backward')}/>
-            <input id="left" class="button"  type="button" value="left" onClick={() => button('left')}/>
-            <input id="stop" class="button"  type="button" value="stop" onClick={() => button('stop')}/>
+            <input id="right" class="button" type="button" value="RIGHT" onClick={() => button('right')}/>
+            <input id="forward" class="button"  type="button" value="FORWARD" onClick={() => button('forward')}/>
+            <input id="backward" class="button"  type="button" value="BACKWARD" onClick={() => button('backward')}/>
+            <input id="left" class="button"  type="button" value="LEFT" onClick={() => button('left')}/>
+            <input id="stop" class="button"  type="button" value="STOP" onClick={() => button('stop')}/>
 
-</div>
-           
+        </div> </div>  
     );
 };
 

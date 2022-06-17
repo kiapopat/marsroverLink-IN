@@ -64,7 +64,7 @@ function Battery() {
       //lastUpdate = (RoverData.latest);
     }
     var batteryLevel = 'unknown';
-    //var battery = 100
+    var battery = 80
     switch(Math.ceil(battery/10)*10) {
       case 0:
           batteryLevel = 'zero';
