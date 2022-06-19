@@ -6,7 +6,7 @@ import './battery.css';
 
 function Battery() {
 
-    const [RoverData, setRoverData] = React.useState(null);
+    const [BatteryData, setBatteryData] = React.useState(null);
     //var xcoord;
     //var ycoord;
     var battery;
@@ -40,31 +40,29 @@ function Battery() {
     postCoords(5, 3);*/
 
     //async function to get rover data
-    const getRoverData = async () => {
-      const response = await axios("/rover");
-      setRoverData(response.data);
+    const getBatteryData = async () => {
+      const response = await axios("/battery");
+      setBatteryData(response.data);
     };
 
     //useEffect hook to get rover data
     //the way its set up now, getRoverData gets executed by the hook each time the page is re-rendered,
     //but for example you could also use getObstacleData as an event that gets executed whenever a button is clicked,
     //shouldn't be necesary
-    React.useEffect(() => {
-      getRoverData();
+    React.useEffect(() => { //updates battery data every 3s
+        setInterval(function(){
+            getBatteryData();
+        }, 3000)
     }, [])
 
 
-    //this is necessary because RoverData is null for some reason during the first two requests,
-    //and the code breaks if I try to get attributes of a null object
-    if(RoverData != null){
-      battery = (RoverData.battery);
-      //xcoord = (RoverData.xcoord);
-      //ycoord = (RoverData.ycoord);
-      //angle = (RoverData.angle);
-      //lastUpdate = (RoverData.latest);
+
+    if(BatteryData != null){
+      battery = (BatteryData.battery);
     }
     var batteryLevel = 'unknown';
     //var battery = 100
+    console.log(battery);
     switch(Math.ceil(battery/10)*10) {
       case 0:
           batteryLevel = 'zero';

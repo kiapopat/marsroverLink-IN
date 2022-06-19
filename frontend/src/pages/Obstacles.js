@@ -49,3 +49,11 @@ function Obstacles() {
   }
   
   export default Obstacles;
+
+  /*for(let i= 0; i<sampleData.length; i++) {
+    var coords = sampleData[colour];
+    let x = sampleData.x;
+    let y = sampleData.y;
+    let colour = sampleData.colour;
+    grid[x][y] = <GridSquare key={(x,y)} color={COLOUR_MAP[colour]} />; 
+}*/
