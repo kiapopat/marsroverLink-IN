@@ -16,6 +16,9 @@ const Home = () => {
       <br/>
       <br/>
       <Link to="map">Click to view the map</Link>
+      <br/>
+      <br/>
+      <Link to="gridmap">Click to view the grid map</Link>
     </div> 
       
   );
