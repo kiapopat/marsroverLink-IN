@@ -61,7 +61,7 @@ function Battery() {
       battery = (BatteryData.battery);
     }
     var batteryLevel = 'unknown';
-    //var battery = 100
+    var battery = 10
     console.log(battery);
     switch(Math.ceil(battery/10)*10) {
       case 0:
