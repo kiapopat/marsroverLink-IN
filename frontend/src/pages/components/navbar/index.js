@@ -56,7 +56,7 @@ const Navbar = () => {
                   to="/map" 
                   activeStyle={{ color: 'black' }}
                 >
-                    Map
+                    Pathfinder
 
                     </NavLink>
                 </li>
@@ -66,6 +66,13 @@ const Navbar = () => {
                   activeStyle={{ color: 'black' }}
                 >
                     Battery
+                    </NavLink>
+
+                <NavLink 
+                  to="/gridmap" 
+                  activeStyle={{ color: 'black' }}
+                >
+                    Map
                 {/* </NavLink>
                 </li>
                 <li class="nav-item">

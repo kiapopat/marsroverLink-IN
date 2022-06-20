@@ -99,5 +99,7 @@
     grid-template-columns: repeat(var(--cols), var(--tile-size));
     grid-gap: 0;
     align-self: flex-start;
+    position: 'absolute'; left: '50%'; top: '50%'
+
   }
   

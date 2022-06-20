@@ -15,10 +15,10 @@ const Home = () => {
       <Link to="control">Click to manually control the rover</Link>
       <br/>
       <br/>
-      <Link to="map">Click to view the map</Link>
+      <Link to="map">Click to view the pathfinder</Link>
       <br/>
       <br/>
-      <Link to="gridmap">Click to view the grid map</Link>
+      <Link to="gridmap">Click to view the map</Link>
     </div> 
       
   );

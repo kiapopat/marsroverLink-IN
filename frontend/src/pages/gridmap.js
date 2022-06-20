@@ -46,14 +46,37 @@ function Gridmap(){
 
       
  return (
-    <div>
-      <p>pink: {!pink ? "Loading..." : pink}</p>
+
+
+
+<div style={{
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+}}>
+     <GridBoard/>
+</div>
+
+/* <div style={{
+    display: 'flex',
+    alignItems: 'left',
+    justifyContent: 'left',
+}}>
+    <p>pink: {!pink ? "Loading..." : pink}</p>
      <p>green: {!green ? "Loading..." : green}</p>
       <p>black: {!black ? "Loading..." : black}</p>
       <p>orange: {!orange ? "Loading..." : orange}</p>
-      <p>blue: {!blue ? "Loading..." : blue}</p> 
-      <GridBoard/>
-    </div>
+      <p>blue: {!blue ? "Loading..." : blue}</p>  */
+
+      
+/*         style={{
+        position: 'absolute',
+        margin: 50px,
+        margin-left: 400px,
+        margin-top: 100px;  
+      }};
+
+    </div> */
 ); 
 
 }
