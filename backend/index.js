@@ -113,7 +113,7 @@ app.post("/coords", (req,res) => {
 	dest.x = req.body.x;
 	dest.y = req.body.y;
 
-	connection.query("SELECT * FROM rover", getpos = function(error, rows, fields) {	
+	/*connection.query("SELECT * FROM rover", getpos = function(error, rows, fields) {	
         
 		if(!!error){
 			console.log(error);
@@ -151,8 +151,8 @@ app.post("/coords", (req,res) => {
 						}
 				}	
 			});
-		}
-	});
+		}*/
+	
 
 	/*connection.query("SELECT * FROM rover", getpos = function(error, rows, fields, callback) {	
 			

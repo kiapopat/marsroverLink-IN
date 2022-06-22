@@ -53,15 +53,21 @@ function Control() {
             <br/> 
             <br/> 
            
-          
+        <div
+        style={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                height: '100'
+            }}>
            
-            <input id="right" class="button" type="button" value="RIGHT" onClick={() => button('right')}/>
+            <input id="left" class="button"  type="button" value="LEFT" onClick={() => button('left')}/>
             <input id="forward" class="button"  type="button" value="FORWARD" onClick={() => button('forward')}/>
             <input id="backward" class="button"  type="button" value="BACKWARD" onClick={() => button('backward')}/>
-            <input id="left" class="button"  type="button" value="LEFT" onClick={() => button('left')}/>
+            <input id="right" class="button" type="button" value="RIGHT" onClick={() => button('right')}/>
             <input id="stop" class="button"  type="button" value="STOP" onClick={() => button('stop')}/>
 
-        </div> </div>  
+        </div> </div> </div> 
     );
 };
 

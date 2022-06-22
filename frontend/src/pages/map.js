@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React from 'react'
 import Obstacles from './Obstacles';
 import './gridmap.css'
@@ -25,9 +26,28 @@ function Map({roverPath, pos, obstacle, stage}) {
     //     stageHeight = pos[1] + 100;
     // }
     // console.log(stage);
-    return (
+    function postCoords(x, y){
+        const coords = {
+            x: x,
+            y: y
+        }
+        axios.post("/coords", coords)
+        .then((response) => {
+            console.log(response.status); //should return 200 ok
+        });
+    }
+
+    //right now postCoords just gets called an arbitrary number of times instead of when the button is actually clicked. No idea why
+    /* return (
+        <div>
+          <button onClick={postCoords(5,3)}>
+              Post coordinates
+          </button>
+        </div>
+    ); */
+
         
-        <Stage x={stageX} y={stageY} width={stageWidth} height={stageHeight}>
+/*         <Stage x={stageX} y={stageY} width={stageWidth} height={stageHeight}>
             <Layer>
                 {roverPath}
                 <Text x={40} y={20} text="Star: the current location of the rover" fontSize={18} />
@@ -35,20 +55,32 @@ function Map({roverPath, pos, obstacle, stage}) {
                 <Text x={40} y={60} text="Green Line: Rover Path" fontSize={18} />
                 <Text x={40} y={80} text="Red -> White Fill: Indicate radar readings" fontSize={18} />
                 <RegularPolygon sides={3} x={basePos[0]} y={basePos[1]} fill="blue" radius={20}/>
-                {/*  <Star x={pos[0]} y={pos[1]} fill="red" numPoints={5} innerRadius={10} outerRadius={20}  */ }
+                {/*  <Star x={pos[0]} y={pos[1]} fill="red" numPoints={5} innerRadius={10} outerRadius={20}  
                 {obstacle} 
             </Layer>
-        </Stage>
+    </Stage> */
 
 
 
-    )
+
+return(
+
+    <div>
+    <button onClick={postCoords(5,3)}>
+        Post coordinates
+    </button>
+
+</div>
+
+
+)
+    
 
 }
 
 export default Map; 
-/*
-function Map() {
+{/* 
+ function Map() {
     return (
         <div
         style={{
@@ -65,7 +97,7 @@ function Map() {
            
         </div>
     )
-/*          var line = new Konva.Line({
+         var line = new Konva.Line({
             x: 100,
             y: 50,
             points: [73, 70, 340, 23, 450, 60, 500, 20],
@@ -75,5 +107,4 @@ function Map() {
     
 }
 
-export default Map; 
-*/
+export default Map;  */}
