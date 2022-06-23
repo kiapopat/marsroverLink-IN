@@ -25,6 +25,7 @@
     "react-scripts": "4.0.3",
     "styled": "^1.0.0",
     "styled-components": "^5.3.5",
+    "use-image": "^1.0.12",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

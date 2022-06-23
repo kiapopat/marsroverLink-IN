@@ -18,8 +18,8 @@ const Navbar = () => {
             <NavLogo to="/" class="navbar-brand">
                 Link-IN
             </NavLogo>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <FaBars/>
+            <button class="navbar-toggler" style={{float: "right", marginTop: "10px"}} type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <FaBars color = "white" />
                 </button>
             {/* <Bars /> */}
 
@@ -53,10 +53,10 @@ const Navbar = () => {
                 </li>
                 <li class="nav-item">
                 <NavLink 
-                  to="/map" 
+                  to="/gridmap" 
                   activeStyle={{ color: 'black' }}
                 >
-                    Pathfinder
+                    Map
 
                     </NavLink>
                 </li>
@@ -66,13 +66,15 @@ const Navbar = () => {
                   activeStyle={{ color: 'black' }}
                 >
                     Battery
-                    </NavLink>
 
+                    </NavLink>
+                </li>
+                <li class="nav-item">
                 <NavLink 
-                  to="/gridmap" 
+                  to="/map" 
                   activeStyle={{ color: 'black' }}
                 >
-                    Map
+                    Pathfinder
                 {/* </NavLink>
                 </li>
                 <li class="nav-item">

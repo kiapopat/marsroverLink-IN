@@ -14,6 +14,7 @@
     --color-3: #000000;
     --color-4: #ff9706;
     --color-5: #00bfff;
+    --color-6: #d4ff00;
     --color-6: #ff0000;
     --color-7: #ef6969;
     --color-8: #c3a9fb;
@@ -99,7 +100,9 @@
     grid-template-columns: repeat(var(--cols), var(--tile-size));
     grid-gap: 0;
     align-self: flex-start;
-    position: 'absolute'; left: '50%'; top: '50%'
-
+  }
+  
+  #app {
+    height: 100vh;
   }
   

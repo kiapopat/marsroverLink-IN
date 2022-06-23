@@ -119,6 +119,12 @@ export default function GridBoard(props) {
         black: 3,
         orange: 4,
         blue: 5,
+        r1: 10,
+        r2: 9,
+        r3: 8,
+        r4: 7,
+        r5: 6,
+
     }
 
     const [RoverData, setRoverData] = React.useState(null);
