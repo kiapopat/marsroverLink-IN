@@ -18,16 +18,22 @@ function createPath(dest, pos, obstacles){
     var radius = 10;
     var point;
     let inRange = rangeCheck(dest, pos, obstacles, radius);
-    if(inRange.length <= 1){
+    if(inRange.length < 1){
         return dest;
     }
     //console.log("pos:",pos, "obstacles:", obstacles);
     function reachable(dest, pos, obstacles, direction){ //determines which obstacles can be reached directly from the current position
         let points = [];
         for(let i=0; i<obstacles.length; i++){
-            let point = evade(dest, pos, obstacles[i], obstacles, radius, direction);
+            let point = evade(dest, pos, obstacles[i], radius, direction);
             let inRange = rangeCheck(point, pos, obstacles, radius);
-            if(inRange.length <= 1){
+            let index = inRange.indexOf(i);
+            //console.log("before:", inRange, "index:", index, "i:", i);
+            if(index != -1){
+                inRange.splice(index, 1);
+            }
+            //console.log("inrange:", inRange, "point:", point);
+            if(inRange.length < 1){
                 points.push(point);
             }
         }
@@ -38,6 +44,7 @@ function createPath(dest, pos, obstacles){
     var min = 100000000000;
     var mindist = 10000000000;
     var possible_destinations = reachable(dest, pos, obstacles, "right"); //possible obstacles to go to if evading on right
+    console.log("reachable right:", possible_destinations, "postion:", pos);
     for(let i=0; i<possible_destinations.length; i++){
         let inRange = rangeCheck(dest, possible_destinations[i], obstacles, radius);
         //console.log("point", possible_destinations[i], "reachable", inRange);
@@ -54,6 +61,7 @@ function createPath(dest, pos, obstacles){
         }
     }
     var possible_destinations = reachable(dest, pos, obstacles, "left"); //possible obstacles to go to if evading on right
+    console.log("reachable left:", possible_destinations, "postion:", pos);
     for(let i=0; i<possible_destinations.length; i++){ //repeat process for evading on left
         let inRange = rangeCheck(dest, possible_destinations[i], obstacles, radius);
         //console.log("point", possible_destinations[i], "reachable", inRange);
@@ -78,7 +86,8 @@ function rangeCheck(dest, pos, obstacles, radius){ //checks which obstacles are 
     var slope = (dest.y-pos.y)/(dest.x-pos.x); //slope between position and destination
     var ang_obs_pos = math.atan(slope); // ang_obs_pos between position and destination
     var q = pos.y - slope*pos.x; // y offset of line between position and destination
-    var yoffset = radius/math.cos(ang_obs_pos); // y offset to add clearance on either side of the line between position and destination
+    var yoffset = radius/math.cos(ang_obs_pos); 
+    //console.log(slope, q, yoffset);// y offset to add clearance on either side of the line between position and destination
     var distance_pos_dest = math.sqrt(math.pow(pos.x - dest.x,2) + math.pow(pos.y - dest.y, 2)); //distance between position and destination
     for(i=0; i<obstacles.length; i++){
         var distance_obs_dest = math.sqrt(math.pow(obstacles[i].x - dest.x,2) + math.pow(obstacles[i].y - dest.y, 2));
@@ -94,7 +103,7 @@ function rangeCheck(dest, pos, obstacles, radius){ //checks which obstacles are 
     return(inTheWay);
 }
 
-function evade(dest, pos, obstacle, obstacles, radius, direction){
+function evade(dest, pos, obstacle, radius, direction){
 
     function ang(obsx, obsy, posx, posy){
         let slope = (obsy-posy)/(obsx-posx);
@@ -131,7 +140,7 @@ function evade(dest, pos, obstacle, obstacles, radius, direction){
     else{
         var evadeangle = deviation/2 + ang(dest.x, dest.y, obstacle.x, obstacle.y); //angle of line on which to evade obstacle
     }
-    console.log("currently evading:", obstacle, " obsangle=", (ang_obs_pos/math.PI)*180, " destangle=", (ang_dest_pos/math.PI)*180, "deviation=", (deviation/math.PI)*180, " evadeangle=", (evadeangle/math.PI)*180);
+    //console.log("currently evading:", obstacle, " obsangle=", (ang_obs_pos/math.PI)*180, " destangle=", (ang_dest_pos/math.PI)*180, "deviation=", (deviation/math.PI)*180, " evadeangle=", (evadeangle/math.PI)*180);
     if(direction === "left"){
         var go_right = false;
     }
@@ -140,13 +149,13 @@ function evade(dest, pos, obstacle, obstacles, radius, direction){
     }
 
     if(go_right){ //offsets in order to evade on right
-        var y_offset = -math.sin(math.PI - evadeangle)*radius;
-        var x_offset = math.cos(math.PI - evadeangle)*radius;
+        var y_offset = -math.sin(math.PI - evadeangle)*radius*1.5;
+        var x_offset = math.cos(math.PI - evadeangle)*radius*1.5;
         //console.log("test", x_offset, y_offset);
     }
     else if(!go_right){ //offsets in order to evade on left
-        var y_offset = math.sin(math.PI - evadeangle)*radius;
-        var x_offset = -math.cos(math.PI - evadeangle)*radius;
+        var y_offset = math.sin(math.PI - evadeangle)*radius*1.5;
+        var x_offset = -math.cos(math.PI - evadeangle)*radius*1.5;
         //console.log("test",x_offset, y_offset);
     }
 
@@ -164,17 +173,22 @@ function evade(dest, pos, obstacle, obstacles, radius, direction){
     return point;
 }
 
-/*var dest = {
+var dest = {
     x:50,
     y:50
 };
 
 var obstacles = [
-    {x:25, y:25},
+    /*{x:25, y:25},
     {x:32, y:32},
     {x:35, y:40},
     {x:60, y:60},
-    {x:15, y:15}
+    {x:15, y:15}*/
+    {x:20, y:10},
+    {x:10, y:20},
+    {x:24, y:44},
+    {x:40, y:30},
+    {x:38, y:50}
 ];
 
 var obstacle = {
@@ -183,13 +197,16 @@ var obstacle = {
 };
 
 var pos = {
-    x:0,
-    y:0
-};*/
+    x:29.611,
+    y:-1.52
+};
 
+//rangeCheck(dest, pos, obstacles, 10);
 //console.time();
-//out = pathGenerator(dest, pos, obstacles);
-//console.log(out);
+out = pathGenerator(dest, pos, obstacles);
+console.log(out);
 //console.timeEnd();
 //point = evade(dest, pos, obstacle, obstacles, 10, "right");
 //console.log(point);
+//out = rangeCheck(dest, pos, obstacles, 10);
+//console.log(out);

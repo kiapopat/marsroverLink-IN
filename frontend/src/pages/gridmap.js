@@ -16,6 +16,7 @@ function Gridmap(){
     var green;
     var black;
     var orange;
+    var yellow;
 
     //async function to get obstacle data
     const getObstacleData = async () => {
@@ -41,6 +42,7 @@ function Gridmap(){
       blue = (ObstacleData.blue);
       orange = (ObstacleData.orange);
       green = (ObstacleData.green);
+      yellow = (ObstacleData.yellow)
     }
   
 
@@ -48,14 +50,19 @@ function Gridmap(){
  return (
 
 
-
 <div style={{
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-}}>
-     <GridBoard/>
-</div>
+     display: 'flex',
+     alignItems: 'center',
+     justifyContent: 'center',
+    height:'100vh',
+    padding:'10em'
+    
+ }}>
+
+
+
+      <GridBoard/>
+ </div>
 
 /* <div style={{
     display: 'flex',

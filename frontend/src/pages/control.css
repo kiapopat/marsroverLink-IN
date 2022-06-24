@@ -25,41 +25,48 @@
    color: white;
    margin-left: 100px;
    margin-top: 0px;
+   text-align: center;
 }
 #Manual{
    background-color: #9a6d06;
    color: white;
    margin-left: -500px;
    margin-top: 0px;
+   text-align: center;
 }
 #left{
      background-color: #6aff00;
      color: white;
      margin-left: 0px;
      margin-top: 100px;
+     text-align: center;
 }
 
 #right{
    background-color: #6aff00;
      color: white;
-     margin-left: 200px;
+     margin-left: 5px;
      margin-top: 100px;
+     text-align: center;
 }
 #forward{
    background-color: #6aff00;
      color: white;
-     margin-left: 5px;
+     margin-left: 12px;
      margin-top: 10px;
+     text-align: center;
 }
 #backward{
    background-color: #6aff00;
      color: white;
-     margin-left: -123px;
+     margin-left: -115px;
      margin-top: 190px;
+     text-align: center;
 }
 #stop{
    background-color: red;
      color: white;
-     margin-left: -712px;
+     margin-left: -671px;
      margin-top: 100px;
+     text-align: center;
 }

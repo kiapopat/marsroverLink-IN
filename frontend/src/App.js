@@ -5,6 +5,7 @@ import Index from './pages/index';
 import Battery from './pages/battery';
 import About from './pages/about';
 import Map from './pages/map';
+import Post from './Post';
 import Gridmap from './pages/gridmap';
 import Control from './pages/control';
 import Navbar from './pages/components/navbar'
@@ -26,6 +27,8 @@ function App(){
         <Route path="control" element={ <Control/> } />
         <Route path="map" element={ <Map/> } />
         <Route path="gridmap" element={ <Gridmap/> } />
+        <Route path="post" element={ <Post/> } />
+
       </Routes> }
 
 

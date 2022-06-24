@@ -19,6 +19,9 @@ const Home = () => {
       <br/>
       <br/>
       <Link to="gridmap">Click to view the map</Link>
+      <br/>
+      <br/>
+      <Link to="post">Click to post coords</Link>
     </div> 
       
   );
