@@ -5,6 +5,8 @@ import { Stage, Layer, Rect, Text, Circle, Image} from 'react-konva';
 import Konva from 'konva';
 import roverpic from "./rover.png";
 import useImage from 'use-image';
+//import NameForm from "./components/input"
+
 
 export default function Map(props) {
   
@@ -71,7 +73,9 @@ export default function Map(props) {
 
         
     return (
-        <Stage width={window.innerWidth} height={window.innerHeight}>
+
+
+         <Stage width={window.innerWidth} height={window.innerHeight}>
         <Layer>
         
 
@@ -191,7 +195,7 @@ function Map() {
            
         </div>
     )
-/*          var line = new Konva.Line({
+         var line = new Konva.Line({
             x: 100,
             y: 50,
             points: [73, 70, 340, 23, 450, 60, 500, 20],
@@ -202,6 +206,6 @@ function Map() {
 }
 
 export default Map; 
-*/
 
- 
+*/
+    

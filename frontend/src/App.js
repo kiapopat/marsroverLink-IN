@@ -9,6 +9,7 @@ import Post from './Post';
 import Gridmap from './pages/gridmap';
 import Control from './pages/control';
 import Navbar from './pages/components/navbar'
+import PathCoords from './pages/pathcoords'
 import React from 'react';
 //import GridSquare from './components/gridsquare'
 
@@ -27,7 +28,7 @@ function App(){
         <Route path="control" element={ <Control/> } />
         <Route path="map" element={ <Map/> } />
         <Route path="gridmap" element={ <Gridmap/> } />
-        <Route path="post" element={ <Post/> } />
+        <Route path="post" element={ <PathCoords/> } />
 
       </Routes> }
 
