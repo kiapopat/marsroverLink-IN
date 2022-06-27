@@ -9,6 +9,8 @@ import useImage from 'use-image';
 
 
 export default function Map(props) {
+    var xrover = 0;
+    var yrover = 0;
   
 
     const [RoverData, setRoverData] = React.useState(null);
@@ -21,14 +23,15 @@ export default function Map(props) {
       React.useEffect(() => { //query backend for rover data every 200ms
         setInterval(function(){
             getRoverData();
-        }, 200)
+        }, 20)
       }, [])
+      //console.log("roverdata", RoverData);
       
       if(RoverData != null){ //Rover positon display, currently displyed as green tile, please add rover icon
-        var xrover = RoverData.xcoord;
-        var yrover = RoverData.ycoord;
+        xrover = RoverData.xcoord/2.37 + 100;
+        yrover = RoverData.ycoord/2.37 + 100;
       }
-      console.log(xrover, yrover);
+      //console.log(xrover, yrover);
 
       
     const [ObstacleData, setObstacleData] = React.useState(null);
@@ -43,10 +46,10 @@ export default function Map(props) {
         }, 1000)
       }, [])
 
-      var xrover = 0;
-      var yrover = 0;
-      var xvalues = [0,0,0,0,0,0];
-      var yvalues = [0,0,0,0,0,0];
+      //var xrover = 0;
+      //var yrover = 0;
+      var xvalues = [0,1,2,3,4,5];
+      var yvalues = [6,7,8,9,10,11];
       var rvalues = [0,0,0,0,0,0];
       var colour = ["white","white","white","white","white","white","white",];
       //var x1, x2, x3, x4, x5, x6 = 0;
@@ -57,25 +60,27 @@ export default function Map(props) {
 
 
       //console.log(ObstacleData);
-
-      if(ObstacleData != null){// For each key, colour in that square.
+//uncomment this section
+/*       if(ObstacleData != null){// For each key, colour in that square.
             for(let i=0; i<ObstacleData.length; i++){
                 if(ObstacleData[i].x !== 0 || ObstacleData[i].y !== 0){
-                    xvalues[i] = ObstacleData[i].x;
-                    yvalues[i] = ObstacleData[i].y;
-                    rvalues[i] = 20;
+                    xvalues[i] = ObstacleData[i].x/2.25;
+                    yvalues[i] = ObstacleData[i].y/2.25;
+                    rvalues[i] = 10;
                     colour[i] = ObstacleData[i].colour;
                 }
             }
       }
+ */
 
+//till here
       const [image] = useImage(roverpic);
 
         
     return (
 
 
-         <Stage width={window.innerWidth} height={window.innerHeight}>
+         <Stage width={1500} height={890}>
         <Layer>
         
 
@@ -120,92 +125,16 @@ export default function Map(props) {
             height = {50}  
         />
 
-        
+
+ <Text x={1000} y={20} text={colour[0] + " alien: " + xvalues[0] + "," + yvalues[0]}  fontSize={18} /> 
+ <Text x={1000} y={40} text={colour[1] + " alien: " + xvalues[1] + "," + yvalues[1]}  fontSize={18}/>
+ <Text x={1000} y={60} text={colour[2] + " alien: " + xvalues[2] + "," + yvalues[2]}  fontSize={18}/>
+ <Text x={1000} y={80} text={colour[3] + " alien: " + xvalues[3] + "," + yvalues[3]}  fontSize={18}/>
+ <Text x={1000} y={100} text={colour[4] + " alien: " + xvalues[4] + "," + yvalues[4]}  fontSize={18}/>
+ <Text x={1000} y={120} text={colour[5] + " alien: " + xvalues[5] + "," + yvalues[5]}  fontSize={18}/>
+
 
         </Layer>
       </Stage>
     )
 }
-
-
-/* import React from 'react'
-import Obstacles from './Obstacles';
-import './gridmap.css'
-import GridMap from './gridmap'
-import {Stage, Layer, Text, RegularPolygon, Star} from 'react-konva';
-
- var stageX = 0;
-var stageY = 0;
-var stageWidth = window.innerWidth;
-var stageHeight = window.innerHeight*3/4;
-
-function Map({roverPath, pos, obstacle, stage}) {
-    var roverWidth = 25;
-    var basePos = [window.innerWidth/2 - roverWidth/2, window.innerHeight/2];
-    // if(pos[0] < -stageX) {
-    //     stageX = stageX - pos[0] + 100;
-    //     stageWidth = stageWidth - pos[0] + 100;
-    // } else if(pos[0] > stageWidth + stageX) {
-    //     stageWidth = pos[0] + 100;
-    // }
-    // if(pos[1] < -stageY) {
-    //     stageY = stageY - pos[1] + 100;
-    //     stageHeight = stageHeight - pos[1] + 100;
-    // } else if(pos[1] > stageHeight + stageY) {
-    //     stageHeight = pos[1] + 100;
-    // }
-    // console.log(stage);
-    return (
-        
-        <Stage x={stageX} y={stageY} width={stageWidth} height={stageHeight}>
-            <Layer>
-                {roverPath}
-                <Text x={40} y={20} text="Star: the current location of the rover" fontSize={18} />
-                <Text x={40} y={40} text="Triangle: the base" fontSize={18} />
-                <Text x={40} y={60} text="Green Line: Rover Path" fontSize={18} />
-                <Text x={40} y={80} text="Red -> White Fill: Indicate radar readings" fontSize={18} />
-                <RegularPolygon sides={3} x={basePos[0]} y={basePos[1]} fill="blue" radius={20}/>
-                {/*  <Star x={pos[0]} y={pos[1]} fill="red" numPoints={5} innerRadius={10} outerRadius={20}  }
-                {obstacle} 
-            </Layer>
-        </Stage>
-
-
-
-    )
-
-}
-
-export default Map; 
-
-function Map() {
-    return (
-        <div
-        style={{
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                height: '100'
-            }}
-        >
-        
-            <h1>Map</h1>
-            <Obstacles />
-            
-           
-        </div>
-    )
-         var line = new Konva.Line({
-            x: 100,
-            y: 50,
-            points: [73, 70, 340, 23, 450, 60, 500, 20],
-            stroke: 'red',
-            tension: 1
-        });  
-    
-}
-
-export default Map; 
-
-*/
-    
