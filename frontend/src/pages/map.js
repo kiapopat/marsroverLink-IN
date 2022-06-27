@@ -48,8 +48,8 @@ export default function Map(props) {
 
       //var xrover = 0;
       //var yrover = 0;
-      var xvalues = [0,1,2,3,4,5];
-      var yvalues = [6,7,8,9,10,11];
+      var xvalues = [0,0,0,0,0,0];
+      var yvalues = [0,0,0,0,0,0];
       var rvalues = [0,0,0,0,0,0];
       var colour = ["white","white","white","white","white","white","white",];
       //var x1, x2, x3, x4, x5, x6 = 0;
@@ -61,7 +61,7 @@ export default function Map(props) {
 
       //console.log(ObstacleData);
 //uncomment this section
-/*       if(ObstacleData != null){// For each key, colour in that square.
+       if(ObstacleData != null){// For each key, colour in that square.
             for(let i=0; i<ObstacleData.length; i++){
                 if(ObstacleData[i].x !== 0 || ObstacleData[i].y !== 0){
                     xvalues[i] = ObstacleData[i].x/2.25;
@@ -71,7 +71,7 @@ export default function Map(props) {
                 }
             }
       }
- */
+
 
 //till here
       const [image] = useImage(roverpic);
