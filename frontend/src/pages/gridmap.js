@@ -1,12 +1,6 @@
 import React from 'react';
-//import pink from './Obstacles';
 import axios from 'axios';
-import './gridmap.css'
-import { Component } from 'react';
-//import '../node_modules/bootstrap/dist/css/bootstrap.min.css'; 
-import BootstrapTable from 'react-bootstrap-table-next';
 import GridBoard from './components/gridboard'
-import { render } from '@testing-library/react';
 
 function Gridmap(){
 
@@ -64,26 +58,6 @@ function Gridmap(){
       <GridBoard/>
  </div>
 
-/* <div style={{
-    display: 'flex',
-    alignItems: 'left',
-    justifyContent: 'left',
-}}>
-    <p>pink: {!pink ? "Loading..." : pink}</p>
-     <p>green: {!green ? "Loading..." : green}</p>
-      <p>black: {!black ? "Loading..." : black}</p>
-      <p>orange: {!orange ? "Loading..." : orange}</p>
-      <p>blue: {!blue ? "Loading..." : blue}</p>  */
-
-      
-/*         style={{
-        position: 'absolute',
-        margin: 50px,
-        margin-left: 400px,
-        margin-top: 100px;  
-      }};
-
-    </div> */
 ); 
 
 }
