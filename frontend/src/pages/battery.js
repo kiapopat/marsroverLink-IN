@@ -1,5 +1,3 @@
-//import logo from './logo.svg';
-//import './App.css';
 import React from 'react';
 import axios from 'axios';
 import './battery.css';
@@ -7,37 +5,7 @@ import './battery.css';
 function Battery() {
 
     const [BatteryData, setBatteryData] = React.useState(null);
-    //var xcoord;
-    //var ycoord;
     var battery;
-    //var lastUpdate;
-   // var angle;
-
-    /*const coords = {
-      x: 5,
-      y: 9
-    }
-
-    axios.post("/coords", coords)
-    .then((response) => {
-      console.log(response);
-      console.log("test");
-    });*/
-
-    /*function postCoords(x, y){
-      const coords = {
-          x: x,
-          y: y
-      }
-
-      axios.post("/coords", coords)
-      .then((response) => {
-          console.log(response);
-          console.log("test");
-      });
-    }
-
-    postCoords(5, 3);*/
 
     //async function to get rover data
     const getBatteryData = async () => {
@@ -101,25 +69,7 @@ function Battery() {
           batteryLevel = 'unknown';
   }
     return (
- /*      <div className="div1">
-            <h1 className="header1">Battery</h1>
-            
-            
-            <div className="content">
-            <p className="text">
-                
-                <p>The battery of the rover is: {!battery ? "Loading..." : battery}</p>
 
-                <br/>
-                <p>If the battery is less than 20%, the rover needs to be charged!</p>
-                <br/>
-                <br/>    
-            </p>
-            </div>
-      
-
-        </div>
- */
          <>
  
             <h1 className="header1">Battery</h1>
