@@ -1,15 +1,20 @@
- import { useState } from "react";
+import { useState } from "react";
 import ReactDOM from 'react-dom/client';
 import React from 'react';
 import axios from 'axios';
 
 
-
 export default function PathCoords(props) {{
-  const [coordsx, coordsy, setCoordsx, setCoordsy] = useState("");
+  const [coordsx, setCoordsx] = useState("");
+  const [coordsy, setCoordsy] = useState("");
 
   function PostCoords(coordsx, coordsy){
-    axios.post("/coords", coordsx, coordsy)
+    const coords = {
+      x: coordsx,
+      y:  coordsy
+    };
+    console.log(coords);
+    axios.post("/coords", coords)
             .then((response) => {
                 console.log(response.status); //should return 200 ok
             });
@@ -28,11 +33,11 @@ export default function PathCoords(props) {{
     <form onSubmit={handleSubmit}>
       <label>Enter coordinates to route to:
         <input 
-          type="string" 
+          type="int" 
           value={coordsx}
           onChange={(e) => setCoordsx(e.target.value)}
         /> <input 
-          type="string" 
+          type="int" 
           value={coordsy}
           onChange={(e) => setCoordsy(e.target.value)}
         /> 
@@ -41,6 +46,7 @@ export default function PathCoords(props) {{
     </form>
   )
   }
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<PathCoords />);}
