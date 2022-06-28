@@ -4,6 +4,7 @@ import { Stage, Layer, Rect, Text, Circle, Image} from 'react-konva';
 import Konva from 'konva';
 import roverpic from "./rover.png";
 import useImage from 'use-image';
+import './map.css'
 
 
 export default function Map(props) {
