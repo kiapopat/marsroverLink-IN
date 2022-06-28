@@ -21,6 +21,7 @@
     "react-gui-controller": "^1.0.4",
     "react-icons": "^4.4.0",
     "react-konva": "^18.1.1",
+    "react-konva-utils": "^0.3.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "4.0.3",
     "styled": "^1.0.0",

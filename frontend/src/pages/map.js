@@ -1,16 +1,21 @@
 import React, { useEffect } from 'react'
-//import GridSquare from './gridsquare'
 import axios from 'axios';
-import { Stage, Layer, Rect, Text, Circle, Image} from 'react-konva';
+import { Stage, Layer, Text, Circle, Image} from 'react-konva';
 import Konva from 'konva';
 import roverpic from "./rover.png";
 import useImage from 'use-image';
-//import NameForm from "./components/input"
+import PathCoords from './pathcoords'
+import Navbar from './components/navbar'
+import { Html } from 'react-konva-utils';
+import { BrowserRouter as Router, Routes, 
+  Route, Redirect,} from "react-router-dom";
+import { Link } from "react-router-dom";
+
 
 
 export default function Map(props) {
-    var xrover = 0;
-    var yrover = 0;
+    var xrover = 190;
+    var yrover = 100;
   
 
     const [RoverData, setRoverData] = React.useState(null);
@@ -78,10 +83,30 @@ export default function Map(props) {
 
         
     return (
+         
 
 
          <Stage width={1500} height={890}>
         <Layer>
+
+         <Html
+         divProps={{
+              style: {
+                position: 'absolute',
+                top: 10,
+                left: 10,
+              },
+            }}
+          >
+
+         <Routes>
+            {/* <Route path="post" element={ <PathCoords/> } />*/}
+            <Route exact path="/" component={PathCoords} /> 
+    
+          </Routes> 
+
+          <Link to="post">Click to post coords</Link>
+         </Html>
         
 
         <Circle x={xvalues[0]} 

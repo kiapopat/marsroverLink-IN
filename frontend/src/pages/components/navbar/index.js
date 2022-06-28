@@ -3,10 +3,7 @@ import {
     Nav,
     NavLogo,
     NavLink,
-    Bars,
-    NavMenu,
-    NavBtn,
-    NavBtnLink,
+
 } from "./NavbarElements";
 
 import {FaBars} from 'react-icons/fa'

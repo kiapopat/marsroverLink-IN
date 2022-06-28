@@ -58,7 +58,7 @@ function Battery() {
 
 
     if(BatteryData != null){
-      battery = (BatteryData.battery);
+      battery = 100-(BatteryData.battery / 6.67);
     }
     var batteryLevel = 'unknown';
     //var battery = 15
