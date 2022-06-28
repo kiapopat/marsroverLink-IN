@@ -3,6 +3,8 @@ import {
     Nav,
     NavLogo,
     NavLink,
+    NavBtn,
+    NavBtnLink
 
 } from "./NavbarElements";
 
@@ -18,20 +20,11 @@ const Navbar = () => {
             <button class="navbar-toggler" style={{float: "right", marginTop: "10px"}} type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <FaBars color = "white" />
                 </button>
-            {/* <Bars /> */}
 
-            {/* <NavMenu> */}
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
       <li class="nav-item">
-                <NavLink 
-                  to="/" 
-                  activeStyle={{ color:'black' }}
-                >
-                    Home
-                </NavLink>
-                </li>
-                <li class="nav-item">
+
                 <NavLink 
                     class="nav-link"
                   to="/about" 
@@ -72,14 +65,14 @@ const Navbar = () => {
                   activeStyle={{ color: 'black' }}
                 >
                     Pathfinder
-                {/* </NavLink>
+                 </NavLink>
                 </li>
                 <li class="nav-item">
                 <NavBtn>
-                    <NavBtnLink to="/sign-up">Sign Up</NavBtnLink>                
-                </NavBtn> */}
-                </NavLink></li>
-            {/* </NavMenu> */}
+                    <NavBtnLink to="/post">Route to...</NavBtnLink>                
+                </NavBtn> 
+                </li>
+
             </ul>
     </div>
             </div> 

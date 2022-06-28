@@ -1,8 +1,6 @@
 import { FaBars } from "react-icons/fa";
 import { NavLink as Link } from "react-router-dom";
 import styled from "styled-components";
-import './NavbarElements.css';
-import React, {useState, useEffect} from 'react';
 
 
 export const Nav = styled.nav`
@@ -15,7 +13,7 @@ export const Nav = styled.nav`
     z-index: 12;
 `;
 export const NavLogo = styled(Link)`
-  ${'' /* cursor: pointer; */}
+  ${''}
   color: #fff;
   font-size: 2rem;
   text-decoration: none;
